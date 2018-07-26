@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "image": "./assets/images/brant_brown.jpg",
+        "clicked": false
+    },
+    {
+        "id": 2,
+        "image": "./assets/images/gary_gaetti.jpg",
+        "clicked": false
+    },
+    {
+        "id": 3,
+        "image": "./assets/images/george_bell.jpg",
+        "clicked": false
+    },
+    {
+        "id": 4,
+        "image": "./assets/images/mickey_morandini.jpg",
+        "clicked": false
+    },
+    {
+        "id": 5,
+        "image": "./assets/images/rey_sanhez.jpg",
+        "clicked": false
+    },
+    {
+        "id": 6,
+        "image": "./assets/images/rick_wilkins.jpg",
+        "clicked": false
+    },
+    {
+        "id": 7,
+        "image": "./assets/images/rod_beck.jpg",
+        "clicked": false
+    },
+    {
+        "id": 8,
+        "image": "./assets/images/shawon_dunston.jpg",
+        "clicked": false
+    },
+    {
+        "id": 9,
+        "image": "./assets/images/steve_trachsel.jpg",
+        "clicked": false
+    },
+    {
+        "id": 10,
+        "image": "./assets/images/terry_mulholland.jpg",
+        "clicked": false
+    },
+    {
+        "id": 11,
+        "image": "./assets/images/tony_campana.jpg",
+        "clicked": false
+    },
+    {
+        "id": 12,
+        "image": "./assets/images/turk_wendell.jpg",
+        "clicked": false
+    }
+]
