@@ -1,5 +1,8 @@
-import React, { Component } from 'react';
+import React, {
+  Component
+} from 'react';
 import logo from './logo.svg';
+import cards from "./Cubs.json";
 import Navbar from "./components/Navbar";
 import Jumbotron from "./components/Jumbotron";
 import Wrapper from "./components/Wrapper";
@@ -17,24 +20,62 @@ class App extends Component {
     cards: cards,
     unselectedCards: cards
   };
-  
+
   //randomize the placement of cards
   shuffleCards = array => {
-    for (let i = array.length -1; i > 0; i--) {
+    for (let i = array.length - 1; i > 0; i--) {
       let j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
     }
   }
 
-  render() {
-    return (
-      <div className="App">
-        <Navbar />
-        <Jumbotron />
-        <CubCard />
-      </div>
-    );
-  }
-}
+  //handles when user chooses a card
+  chooseCard = id => {
+    const pickedCard = this.state.unselectedCards.find(card => card.id === id);
 
-export default App;
+    if (pickedCard === undefined) {
+      this.setState({
+        correctGuesses: 0,
+        bestScore: (this.state.correctGuesses > this.state.bestScore) ? this.state.correctGuesses : this.state.bestScore,
+        cards: cards,
+        unselectedCards: cards
+      });
+    } else {
+
+      const newCards = this.state.unselectedCards.filter(card => card.id !== id);
+
+      this.setState({
+        correctGuesses: this.state.correctGuesses + 1,
+        cards: cards,
+        unselectedCards: newCards
+      });
+    }
+
+    this.shuffleCards(cards);
+  };
+    render() {
+      return ( 
+        <div className = "App" >
+          <Wrapper>
+            <Navbar 
+              correctGuesses={this.state.correctGuesses}
+              bestScore={this.state.correctGuesses}
+            />
+            <Jumbotron />
+            {
+              this.state.cards.map(card => (
+                <CubCard 
+                  id={card.id}
+                  image={card.image}
+                  chosenCard={this.chooseCard}
+                  correctGuesses={this.state.correctGuesses}
+                />
+              ))
+            }
+          </Wrapper>
+        </div>
+      );
+    }
+  }
+
+  export default App;
