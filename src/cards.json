@@ -1,61 +1,73 @@
 [
     {
         "id": 1,
+        "name": "Brant Brown",
         "image": "./assets/images/brant_brown.jpg",
         "clicked": false
     },
     {
         "id": 2,
+        "name": "Gary Gaetti",
         "image": "./assets/images/gary_gaetti.jpg",
         "clicked": false
     },
     {
         "id": 3,
+        "name": "George Bell",
         "image": "./assets/images/george_bell.jpg",
         "clicked": false
     },
     {
         "id": 4,
+        "name": "Mickey Morandini",
         "image": "./assets/images/mickey_morandini.jpg",
         "clicked": false
     },
     {
         "id": 5,
-        "image": "./assets/images/rey_sanhez.jpg",
+        "name": "Rey Sanchez",
+        "image": "./assets/images/rey_sanchez.jpg",
         "clicked": false
     },
     {
         "id": 6,
+        "name": "Rick Wilkins",
         "image": "./assets/images/rick_wilkins.jpg",
         "clicked": false
     },
     {
         "id": 7,
+        "name": "Rod Beck",
         "image": "./assets/images/rod_beck.jpg",
         "clicked": false
     },
     {
         "id": 8,
+        "name": "Shawon Dunston",
         "image": "./assets/images/shawon_dunston.jpg",
         "clicked": false
     },
     {
         "id": 9,
+        "name": "Steve Trachsel",
         "image": "./assets/images/steve_trachsel.jpg",
         "clicked": false
     },
     {
         "id": 10,
+        "name": "Terry Mulholland",
         "image": "./assets/images/terry_mulholland.jpg",
         "clicked": false
     },
     {
         "id": 11,
+        "name": "Tony Campana",
         "image": "./assets/images/tony_campana.jpg",
         "clicked": false
     },
     {
         "id": 12,
+        "name": "Turk Wendell",
         "image": "./assets/images/turk_wendell.jpg",
         "clicked": false
     }

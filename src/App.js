@@ -1,8 +1,5 @@
-import React, {
-  Component
-} from 'react';
-import logo from './logo.svg';
-import cards from "./Cubs.json";
+import React, {Component} from 'react';
+import cards from "./cards.json";
 import Navbar from "./components/Navbar";
 import Jumbotron from "./components/Jumbotron";
 import Wrapper from "./components/Wrapper";
@@ -52,26 +49,25 @@ class App extends Component {
     }
 
     this.shuffleCards(cards);
-  };
+  }
+  
     render() {
       return ( 
         <div className = "App" >
+          <Navbar 
+            correctGuesses={this.state.correctGuesses}
+            bestScore={this.state.correctGuesses}
+          />
+          <Jumbotron />
           <Wrapper>
-            <Navbar 
-              correctGuesses={this.state.correctGuesses}
-              bestScore={this.state.correctGuesses}
-            />
-            <Jumbotron />
-            {
-              this.state.cards.map(card => (
-                <CubCard 
-                  id={card.id}
-                  image={card.image}
-                  chosenCard={this.chooseCard}
-                  correctGuesses={this.state.correctGuesses}
-                />
-              ))
-            }
+          {this.state.cards.map(card => (
+              <CubCard 
+                id={card.id}
+                image={card.image}
+                chosenCard={this.chooseCard}
+                correctGuesses={this.state.correctGuesses}
+              />
+            ))}
           </Wrapper>
         </div>
       );

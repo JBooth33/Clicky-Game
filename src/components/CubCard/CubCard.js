@@ -1,15 +1,13 @@
 //set up Navbar component
-import React, { Component } from "react";
+import React from "react";
 import "./CubCard.css";
 
-class CubCard extends Component {
-    render() {
-        return (
-            <div className="card" >
-                <img className="card-img-top" src="#" alt="Card image cap" />
-            </div>
-        )
-    }
-}
+const CubCard = props => (
+    <div className="card">
+        <div className="img-container">
+            <img alt={props.name} src={props.image} onClick={() => props.chooseCard(props.id)} />
+        </div>
+    </div>
+)
 
 export default CubCard;

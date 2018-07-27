@@ -1,0 +1,11 @@
+.navbar li {
+    display: inline-block;
+    text-align: center;
+    color: red;
+}
+
+.navbar {
+    background-color: blue;
+    
+}
+
