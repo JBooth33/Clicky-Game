@@ -1,71 +1,60 @@
 import React, {Component} from 'react';
 import cards from "./cards.json";
-import Navbar from "./components/Navbar";
 import Jumbotron from "./components/Jumbotron";
 import Wrapper from "./components/Wrapper";
 import CubCard from "./components/CubCard";
 import './App.css';
 
-
-
 class App extends Component {
 
   //setting state
   state = {
-    correctGuesses: 0,
+    chosenCards: [],
+    score: 0,
     bestScore: 0,
-    cards: cards,
-    unselectedCards: cards
+    message: "Click an image to begin."
   };
 
-  //randomize the placement of cards
-  shuffleCards = array => {
-    for (let i = array.length - 1; i > 0; i--) {
-      let j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-  }
-
-  //handles when user chooses a card
-  chooseCard = id => {
-    const pickedCard = this.state.unselectedCards.find(card => card.id === id);
-
-    if (pickedCard === undefined) {
-      this.setState({
-        correctGuesses: 0,
-        bestScore: (this.state.correctGuesses > this.state.bestScore) ? this.state.correctGuesses : this.state.bestScore,
-        cards: cards,
-        unselectedCards: cards
-      });
-    } else {
-
-      const newCards = this.state.unselectedCards.filter(card => card.id !== id);
-
-      this.setState({
-        correctGuesses: this.state.correctGuesses + 1,
-        cards: cards,
-        unselectedCards: newCards
-      });
-    }
-
-    this.shuffleCards(cards);
-  }
   
+  //handles when user chooses a card
+  chooseCard = card => {
+    let chosenCards = this.state.chosenCards;
+    let score = this.state.score;
+    //if card was already chosen
+    if (chosenCards[card.id]) {
+      this.setState({
+        message: "You lose!",
+        bestScore: Math.max(this.state.score, this.state.bestScore),
+        chosenCards: [],
+        score: 0
+      })
+      //if card has not yet been chosen
+    } else {
+      chosenCards[card.id] = true;
+      this.setState({
+        message: "Lucky guess!",
+        chosenCards: chosenCards,
+        score: ++score
+      })
+    }
+  };
+
+  //render page
     render() {
       return ( 
         <div className = "App" >
-          <Navbar 
-            correctGuesses={this.state.correctGuesses}
-            bestScore={this.state.correctGuesses}
+          <Jumbotron 
+            message={this.state.message}
+            score={this.state.score}
+            bestScore={this.state.bestScore}
           />
-          <Jumbotron />
           <Wrapper>
-          {this.state.cards.map(card => (
-              <CubCard 
-                id={card.id}
-                image={card.image}
-                chosenCard={this.chooseCard}
-                correctGuesses={this.state.correctGuesses}
+            {cards.sort((addEventListener,b) => 0.5 - Math.random()).map(randomCard => (
+              <CubCard
+                chooseCard={this.chooseCard}
+                id={randomCard.id}
+                key={randomCard.id}
+                image={randomCard.image}
               />
             ))}
           </Wrapper>
